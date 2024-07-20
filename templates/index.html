@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Karma:wght@300;400;500;600;700&display=swap');
+
+body {
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+    box-shadow: 0px 0px 5px;
+    width: 100vw;
+    z-index: 999999999999999999999999999;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 4vmin;
+    margin-right: 4vmin;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 3vmin;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+.menu-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    display: none;
+    width: 10vmin;
+}
+.home
+{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: relative;
+    top: 20vh;
+}
+section .content
+{
+    position: relative;
+
+    width: 50vw;
+}
+section .content h1
+{
+    font-family: "Inter", sans-serif;
+    font-size: 5vmin;
+    letter-spacing: -1px;
+    font-weight: 700;
+    color: white;
+}
+section .content .para
+{
+    font-family: "Inter", sans-serif;
+    font-size: 3vmin;
+    letter-spacing: -1px;
+    font-weight: 400;
+    color: #7F9999;
+    
+}
+section div img
+{
+    width: 30vw;
+}
+.about
+{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: relative;
+    top: 20vh;
+}
+.about div
+{
+    position: relative;
+    width: 20vw;
+    background-color:  #1C1B1B;
+    border-radius: 10px;
+    padding: 2vmin 2vmin;
+    align-items: center;
+    justify-content: center;
+text-align: center;
+}
+.about div img
+{
+    width: 15vw;
+    height: 15vw;
+   
+    border-radius: 50%;
+    object-fit: cover;
+}
+.about div h1
+{
+    font-family: "Inter", sans-serif;
+    font-size: 3vmin;
+    letter-spacing: -1px;
+    font-weight: 400;
+    color: white;
+}
+.help
+{
+    position: relative;
+    top: 25vh;
+    height: 30vh;
+    margin-bottom: 10vh;
+}
+.help p
+{
+    position: relative;
+    left: 10vw;
+    font-family: "Inter", sans-serif;
+    font-size: 3vmin;
+    letter-spacing: -1px;
+    font-weight: 400;
+    color: white;
+   
+}
+</style>
+<body style="background-color: rgb(18, 18, 18); color: white;">
+    <!-- {% for message in messages %}
+    <div class="alert alert-{{messagetags}} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    <h1>Homepage</h1>
+    {% if user.is_authenticated %}
+    <h3>Hello {{fname}}</h3>
+    <h4>You are successfully logged in</h4>
+    {% endif %}
+    <button type="submit"><a href="/signup">Signup</a></button>
+    <button type="submit"><a href="/signin">Signin</a></button>
+    <button type="submit"><a href="/signout">Signout</a></button> -->
+    <nav>
+    
+        <ul class="navlinks">
+          <li class="active"><a href="/">Home</a></li>
+          <li class="active"><a href="/studentdocument">Student Login</a></li>
+          <li class="active"><a href="/teachersignup">Teacher Login</a></li>
+        </ul>
+      </nav>
+      <script>
+        const menubtn = document.querySelector('.menu-btn');
+        const navlinks = document.querySelector('.navlinks');
+        const body = document.querySelector('body');
+      
+        menubtn.addEventListener('click', () => {
+          navlinks.classList.toggle('mobile-menu');
+        });
+      
+        body.addEventListener('click', (event) => {
+          if (!event.target.closest('.menu-btn') && !event.target.closest('.navlinks li')) {
+            navlinks.classList.remove('mobile-menu');
+          }
+        });
+      
+        // Add click event listener to all anchor tags within the navbar
+        const navLinks = document.querySelectorAll('.navlinks a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            // Close the mobile menu when a link is clicked
+            navlinks.classList.remove('mobile-menu');
+          });
+        });
+      </script>
+    <section class="home">
+        <div style="position: relative; top: 0vh;" class="content">
+            <h1 ><span style="color: #F76D01;">ScribeSense: <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-motherboard" viewBox="0 0 16 16">
+              <path d="M11.5 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5m-10 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zM5 3a1 1 0 0 0-1 1h-.5a.5.5 0 0 0 0 1H4v1h-.5a.5.5 0 0 0 0 1H4a1 1 0 0 0 1 1v.5a.5.5 0 0 0 1 0V8h1v.5a.5.5 0 0 0 1 0V8a1 1 0 0 0 1-1h.5a.5.5 0 0 0 0-1H9V5h.5a.5.5 0 0 0 0-1H9a1 1 0 0 0-1-1v-.5a.5.5 0 0 0-1 0V3H6v-.5a.5.5 0 0 0-1 0zm0 1h3v3H5zm6.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+              <path d="M1 2a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-2H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 9H1V8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6H1V5H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 2zm1 11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1z"/>
+            </svg></span><br><p style="left: 5vw; position: relative;">S<span class="auto-type"></span></p>
+              <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+              <script>
+                  var typed = new Typed('.auto-type', {
+                      strings: ["tudent Responses Evaluation Platform"],
+                      typeSpeed: 90,
+                      backSpeed: 90,
+                      loop: true
+                  });
+              </script></h1>
+            <p style="width: 45vw;" class="para">Traditional grading methods are often time-consuming and lack the ability to provide nuanced feedback, especially for large datasets. Existing automated solutions often struggle with diverse writing styles and synonyms, leading to subjective assessments. This project presents ScribeSense, a novel approach to automated evaluation that utilizes a comprehensive database of vectorized answer representations and leverages Natural Language Processing (NLP) techniques with a Large Language Model (LLM). ScribeSense analyzes student responses in .docx format, compares them to the relevant vectorized answer in the database, and calculates a score based on semantic similarity. This ensures objective and consistent grading. Additionally, the integrated LLM generates personalized feedback for students, highlighting areas for improvement and suggesting alternative phrasings, fostering deeper understanding and exceeding the limitations of static grading rubrics.</p>
+        </div>
+        <div>
+          <img src="{% static 'images/homepageimage.png' %}" alt="photo">
+        </div>
+    </section>
+    <section class="about">
+      <div>
+          
+          <img src="{% static 'images/ishaan.jpg' %}" alt="photo">
+          <h1>Ishaan Malhotra</h1>
+      </div>
+      <div>
+          
+          <img src="{% static 'images/ravi.jpg' %}" alt="photo">
+          <h1>Ravinder Pratap Singh Ahluwalia</h1>
+      </div>
+      <div>
+    
+          <img src="{% static 'images/sharma.jpg' %}" alt="photo">
+          <h1>Ishaan Sharma</h1>        
+      </div>
+    </section>
+    <section class="help">
+      <p>How to use:-<br><br>1. Teacher has to register on the web app and then upload a document (in .docx format) with correct answers.<br><br>2. Student has to register on the web app and then upload a document (in .docx format) with his solutions.</p>
+    </section>
+</body>
+</html>
